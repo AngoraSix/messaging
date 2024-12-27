@@ -1,0 +1,7 @@
+configs:
+  infra:
+    patternUrls:
+      invitationUrlPattern: ${A6_MESSAGING_OAUTH_SECURITY_ISSUER_URI:http://localhost:10700/managements/clubs/:clubId/invitations/:invitationToken}
+    patternPlaceholders:
+      clubId: :clubId
+      invitationToken: :invitationToken

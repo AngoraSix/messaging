@@ -1,0 +1,27 @@
+# https://docs.spring.io/spring-cloud-stream/reference/rabbit/rabbit_overview/putting-it-all-together.html#page-title
+spring:
+  cloud:
+    stream:
+      bindings:
+        clubInvitation-in-0:
+          destination: ${A6_MESSAGING_RABBITMQ_CLUBINVITATION_INPUT_EXCHANGE:clubInvitation} # existing exchange (or creates)?
+          group: ${A6_MESSAGING_RABBITMQ_CLUBINVITATION_INPUT_QUEUE:messaging} # queue = a6-exchange.a6-queue
+          binder: a6Rabbit
+      rabbit:
+        bindings:
+          clubInvitation-in-0:
+            consumer:
+              republishToDlq: false
+      binders:
+        a6Rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: ${A6_MESSAGING_RABBITMQ_HOST:localhost}
+                port: ${A6_MESSAGING_RABBITMQ_PORT:5672}
+                username: ${A6_MESSAGING_RABBITMQ_USER:guest}
+                password: ${A6_MESSAGING_RABBITMQ_PASSWORD:guest}
+                virtual-host: ${A6_MESSAGING_RABBITMQ_VHOST:/}
+    function:
+      definition: clubInvitation # to be used if we use Spring Cloud Function support https://docs.spring.io/spring-cloud-stream/reference/spring-cloud-stream/producing-and-consuming-messages.html#spring_cloud_function

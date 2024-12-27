@@ -1,0 +1,11 @@
+context:
+  initializer:
+    classes: com.angorasix.messaging.BeansInitializer
+server:
+  port: ${A6_MESSAGING_PORT:10901}
+
+spring:
+  config:
+    import: classpath:/amqp.yml, classpath:/infra.yml
+  application:
+    name: ${APP_NAME:messaging}
