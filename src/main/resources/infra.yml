@@ -1,7 +1,12 @@
 configs:
   infra:
     patternUrls:
-      invitationUrlPattern: ${A6_MESSAGING_OAUTH_SECURITY_ISSUER_URI:http://localhost:10700/managements/clubs/:clubId/invitations/:invitationToken}
+      invitationUrlPattern: ${A6_MESSAGING_INFRA_PATTERNURLS_INVITATION:http://localhost:10700/managements/clubs/:clubId/invitations/:invitationToken}
+      projectUrlPattern: ${A6_MESSAGING_INFRA_PATTERNURLS_PROJECT:http://localhost:10701/projects/:projectId} #Update to project management project View
     patternPlaceholders:
       clubId: :clubId
       invitationToken: :invitationToken
+      projectId: :projectId
+    mailingConfigs:
+      fromName: ${A6_MESSAGING_INFRA_MAILINGCONFIGS_FROMNAME:The AngoraSix Team}
+      fromEmail: ${A6_MESSAGING_MAIL_USERNAME:myusername@gmail.com}

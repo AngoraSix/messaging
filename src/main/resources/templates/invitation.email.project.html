@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title th:text="#{invite.title}">Invitation</title>
+  <style>
+    .container {
+        margin: 0 auto;
+        max-width: 600px;
+        font-family: Arial, sans-serif;
+    }
+    .header {
+        background-color: #47626B;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+    }
+    .body {
+        margin: 20px 0;
+        padding: 10px;
+    }
+    .button__container {
+        text-align: center;
+    }
+    .button__container .button {
+        display: inline-block;
+        background-color: #47626B;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
+    .button__container .button a[href] {
+        color: #ffffff;
+    }
+    .button:hover {
+        background-color: #29475e;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1 th:text="#{invite.header}">You’ve Been Invited!</h1>
+  </div>
+  <div class="body">
+    <p>
+      <span th:text="#{invite.greeting}"></span>,
+    </p>
+    <p>
+      <span th:text="#{invite.project.body}"></span><a th:href="@{${projectUrl}}" th:text="#{invite.project.body.link}">Nuevo Proyecto</a>
+    </p>
+    <p th:text="#{invite.acceptLink}"></p>
+    <p class="button__container">
+      <a th:href="@{${invitationUrl}}" class="button"
+         th:text="#{invite.acceptButton}">Accept</a>
+    </p>
+    <p th:text="#{invite.footer}"></p>
+    <p th:text="#{invite.signature}"></p>
+  </div>
+</div>
+</body>
+</html>
