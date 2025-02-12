@@ -13,7 +13,7 @@ import org.springframework.hateoas.support.WebStack
  * @author rozagerardo
  */
 @SpringBootApplication(
-    exclude = [ThymeleafAutoConfiguration::class]
+    exclude = [ThymeleafAutoConfiguration::class],
 )
 @EnableHypermediaSupport(
     type = [EnableHypermediaSupport.HypermediaType.HAL_FORMS],

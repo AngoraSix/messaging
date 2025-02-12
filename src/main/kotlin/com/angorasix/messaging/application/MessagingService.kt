@@ -79,11 +79,14 @@ class MessagingService(
             val mimeMessage = mailSender.createMimeMessage()
             // True = multipart
             val helper = MimeMessageHelper(mimeMessage, true, "UTF-8")
-            helper.setFrom(infraConfigs.mailingConfigs.fromEmail, infraConfigs.mailingConfigs.fromName)
+            helper.setFrom(
+                infraConfigs.mailingConfigs.fromEmail,
+                infraConfigs.mailingConfigs.fromName,
+            )
             helper.setTo(content.to)
             val subject = messageSource.getMessage(
                 "invite.project.subject", // the key in messages.properties
-                arrayOf(),      // placeholders
+                arrayOf(), // placeholders
                 content.locale, // the user's Locale
             )
             helper.setSubject(subject)
@@ -93,7 +96,7 @@ class MessagingService(
             // 4. Send the email
             mailSender.send(mimeMessage)
             logger.debug("HTML Invitation email sent to ${content.to} for project $projectId")
-        } catch (ex: Exception) {
+        } catch (ex: RuntimeException) {
             logger.error("Error sending HTML invitation email to ${content.to}", ex)
             throw ex
         }
@@ -115,9 +118,9 @@ class MessagingService(
             val helper = MimeMessageHelper(mimeMessage, true, "UTF-8")
             helper.setTo(content.to)
             val subject = messageSource.getMessage(
-                "invite.custom.subject",       // the key in messages.properties
-                arrayOf(content.clubName),      // placeholders {0} replaced with content.clubName
-                content.locale,                  // the user's Locale
+                "invite.custom.subject", // the key in messages.properties
+                arrayOf(content.clubName), // placeholders {0} replaced with content.clubName
+                content.locale, // the user's Locale
             )
             helper.setSubject(subject)
             // "true" indicates HTML content
@@ -126,7 +129,7 @@ class MessagingService(
             // 4. Send the email
             mailSender.send(mimeMessage)
             logger.debug("HTML Invitation email sent to ${content.to} for club ${content.clubName}")
-        } catch (ex: Exception) {
+        } catch (ex: RuntimeException) {
             logger.error("Error sending HTML invitation email to ${content.to}", ex)
             throw ex
         }

@@ -22,6 +22,7 @@ class MessagingMessagingHandler(
 ) {
 
     private val emailRegex = Regex(EMAIL_REGEX)
+
     /* default */
     private val logger: Logger = LoggerFactory.getLogger(MessagingMessagingHandler::class.java)
 
@@ -31,7 +32,7 @@ class MessagingMessagingHandler(
             message.objectType == A6DomainResource.Club.value
         ) {
             val invitationDto = message.extractInfraClubInvitation(objectMapper)
-            if(!emailRegex.matches(invitationDto.email)){
+            if (!emailRegex.matches(invitationDto.email)) {
                 logger.error("Invalid email format for invitation: {}", invitationDto.toString())
             } else {
                 messagingService.processContributorInvitation(invitationDto).collect { result ->
@@ -41,7 +42,6 @@ class MessagingMessagingHandler(
                     }
                 }
             }
-
         }
     }
 

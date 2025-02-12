@@ -41,7 +41,7 @@ class ThymeleafConfig {
     @Bean
     fun templateEngine(
         templateResolver: ITemplateResolver,
-        messageSource: ResourceBundleMessageSource
+        messageSource: ResourceBundleMessageSource,
     ): SpringTemplateEngine {
         val engine = SpringTemplateEngine()
         engine.setTemplateResolver(templateResolver)
