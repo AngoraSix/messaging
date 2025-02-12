@@ -1,0 +1,13 @@
+spring:
+  mail:
+    host: ${A6_MESSAGING_MAIL_HOST:smtp.gmail.com}
+    port: ${A6_MESSAGING_MAIL_PORT:587}
+    username: ${A6_MESSAGING_MAIL_USERNAME:myusername@gmail.com}
+    password: ${A6_MESSAGING_MAIL_PASSWORD:AppPassword}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true

@@ -18,13 +18,23 @@ data class A6InfraConfigurations(
 
     @NestedConfigurationProperty
     var patternPlaceholders: PatternPlaceholders,
+
+    @NestedConfigurationProperty
+    var mailingConfigs: MailingConfigs,
 )
 
 class PatternUrls(
     val invitationUrlPattern: String,
+    val projectUrlPattern: String,
 )
 
 class PatternPlaceholders(
     val clubId: String,
     val invitationToken: String,
+    val projectId: String,
+)
+
+class MailingConfigs(
+    val fromName: String,
+    val fromEmail: String,
 )

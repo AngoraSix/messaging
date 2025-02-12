@@ -1,6 +1,7 @@
 package com.angorasix.messaging
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
 import org.springframework.hateoas.config.EnableHypermediaSupport
@@ -11,7 +12,9 @@ import org.springframework.hateoas.support.WebStack
  *
  * @author rozagerardo
  */
-@SpringBootApplication
+@SpringBootApplication(
+    exclude = [ThymeleafAutoConfiguration::class],
+)
 @EnableHypermediaSupport(
     type = [EnableHypermediaSupport.HypermediaType.HAL_FORMS],
     stacks = [WebStack.WEBFLUX],

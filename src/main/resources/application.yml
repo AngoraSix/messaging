@@ -6,6 +6,10 @@ server:
 
 spring:
   config:
-    import: classpath:/amqp.yml, classpath:/infra.yml
+    import:
+      - optional:file:config/env.properties
+      - classpath:/amqp.yml
+      - classpath:/infra.yml
+      - classpath:/mail.yml
   application:
     name: ${APP_NAME:messaging}
