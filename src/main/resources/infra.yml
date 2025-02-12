@@ -1,7 +1,7 @@
 configs:
   infra:
     patternUrls:
-      invitationUrlPattern: ${A6_MESSAGING_INFRA_PATTERNURLS_INVITATION:http://localhost:10700/managements/clubs/:clubId/invitations/:invitationToken}
+      invitationUrlPattern: ${A6_MESSAGING_INFRA_PATTERNURLS_INVITATION:http://localhost:10700/clubs/:clubId/invitations/:invitationToken/accept}
       projectUrlPattern: ${A6_MESSAGING_INFRA_PATTERNURLS_PROJECT:http://localhost:10701/projects/:projectId} #Update to project management project View
     patternPlaceholders:
       clubId: :clubId
