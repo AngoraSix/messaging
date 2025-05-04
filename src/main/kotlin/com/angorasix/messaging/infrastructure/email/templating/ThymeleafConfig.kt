@@ -10,7 +10,6 @@ import org.thymeleaf.templateresolver.ITemplateResolver
 
 @Configuration
 class ThymeleafConfig {
-
     @Bean
     fun messageSource(): ResourceBundleMessageSource {
         val messageSource = ResourceBundleMessageSource()
