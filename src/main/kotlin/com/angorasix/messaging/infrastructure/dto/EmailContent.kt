@@ -1,6 +1,6 @@
 package com.angorasix.messaging.infrastructure.dto
 
-import java.util.*
+import java.util.Locale
 
 open class EmailContent(
     open val to: String,

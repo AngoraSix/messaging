@@ -12,13 +12,10 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty
  */
 @ConfigurationProperties(prefix = "configs.infra")
 data class A6InfraConfigurations(
-
     @NestedConfigurationProperty
     var patternUrls: PatternUrls,
-
     @NestedConfigurationProperty
     var patternPlaceholders: PatternPlaceholders,
-
     @NestedConfigurationProperty
     var mailingConfigs: MailingConfigs,
 )
