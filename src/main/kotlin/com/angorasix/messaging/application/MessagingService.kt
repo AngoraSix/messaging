@@ -46,7 +46,7 @@ class MessagingService(
                         projectUrl =
                             infraConfigs.patternUrls.projectUrlPattern
                                 .replace(
-                                    infraConfigs.patternPlaceholders.projectId,
+                                    infraConfigs.patternPlaceholders.projectManagementId,
                                     projectManagementId,
                                 ),
                         invitationUrl = tokenUrl,

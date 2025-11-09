@@ -29,6 +29,7 @@ class PatternPlaceholders(
     val clubId: String,
     val invitationToken: String,
     val projectId: String,
+    val projectManagementId: String,
 )
 
 class MailingConfigs(
