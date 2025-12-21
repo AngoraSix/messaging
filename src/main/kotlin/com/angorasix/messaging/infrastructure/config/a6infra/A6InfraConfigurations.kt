@@ -1,4 +1,4 @@
-package com.angorasix.messaging.infrastructure.config.configurationproperty.a6infra
+package com.angorasix.messaging.infrastructure.config.a6infra
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.NestedConfigurationProperty

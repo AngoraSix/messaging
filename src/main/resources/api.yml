@@ -1,0 +1,11 @@
+configs:
+  api:
+    basePaths:
+      messaging: "messaging"
+    routes:
+      wakeup:
+        name: wakeup
+        basePaths:
+          - ${configs.api.basePaths.messaging}
+        method: POST
+        path: "/wakeup"
