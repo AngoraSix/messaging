@@ -19,7 +19,7 @@ import org.springframework.hateoas.support.WebStack
     type = [EnableHypermediaSupport.HypermediaType.HAL_FORMS],
     stacks = [WebStack.WEBFLUX],
 )
-@ConfigurationPropertiesScan("com.angorasix.messaging.infrastructure.config.configurationproperty")
+@ConfigurationPropertiesScan("com.angorasix.messaging.infrastructure.config")
 class MessagingApplication
 
 /**

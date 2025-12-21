@@ -1,7 +1,7 @@
 package com.angorasix.messaging.application
 
 import com.angorasix.commons.infrastructure.intercommunication.club.UserInvited
-import com.angorasix.messaging.infrastructure.config.configurationproperty.a6infra.A6InfraConfigurations
+import com.angorasix.messaging.infrastructure.config.a6infra.A6InfraConfigurations
 import com.angorasix.messaging.infrastructure.dto.CustomClubInvitationEmailContent
 import com.angorasix.messaging.infrastructure.dto.ProjectClubInvitationEmailContent
 import kotlinx.coroutines.flow.Flow

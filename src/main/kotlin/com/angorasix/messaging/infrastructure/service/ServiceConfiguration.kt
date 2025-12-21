@@ -1,8 +1,11 @@
 package com.angorasix.messaging.infrastructure.service
 
 import com.angorasix.messaging.application.MessagingService
-import com.angorasix.messaging.infrastructure.config.configurationproperty.a6infra.A6InfraConfigurations
+import com.angorasix.messaging.infrastructure.config.a6infra.A6InfraConfigurations
+import com.angorasix.messaging.infrastructure.config.api.ApiConfigs
 import com.angorasix.messaging.messaging.listener.handler.MessagingMessagingHandler
+import com.angorasix.messaging.presentation.handler.MessagingHandler
+import com.angorasix.messaging.presentation.router.MessagingRouter
 import org.springframework.context.MessageSource
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -11,6 +14,15 @@ import org.thymeleaf.TemplateEngine
 
 @Configuration
 class ServiceConfiguration {
+    @Bean
+    fun messagingHandler() = MessagingHandler()
+
+    @Bean
+    fun messagingRouter(
+        messagingHandler: MessagingHandler,
+        apiConfigs: ApiConfigs,
+    ) = MessagingRouter(messagingHandler, apiConfigs).messagingRouterFunction()
+
     @Bean
     fun messagingService(
         infraConfigs: A6InfraConfigurations,
