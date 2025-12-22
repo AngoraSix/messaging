@@ -4,6 +4,7 @@ import com.angorasix.commons.infrastructure.intercommunication.A6DomainResource
 import com.angorasix.commons.infrastructure.intercommunication.A6InfraTopics
 import com.angorasix.commons.infrastructure.intercommunication.club.UserInvited
 import com.angorasix.commons.infrastructure.intercommunication.messaging.A6InfraMessageDto
+import com.angorasix.commons.infrastructure.intercommunication.survey.SurveyRegistered
 import com.angorasix.messaging.application.MessagingService
 import kotlinx.coroutines.runBlocking
 import org.slf4j.Logger
@@ -38,6 +39,21 @@ class MessagingMessagingHandler(
                         if (!result) {
                             logger.error("Error processing invitation: {}", userInvited.toString())
                         }
+                    }
+                }
+            }
+        }
+
+    fun surveyRegistered(message: A6InfraMessageDto<SurveyRegistered>) =
+        runBlocking {
+            if (message.topic == A6InfraTopics.SURVEY_REGISTERED.value &&
+                message.targetType == A6DomainResource.PLATFORM_ADMIN &&
+                message.objectType == A6DomainResource.SURVEY.value
+            ) {
+                val surveyRegistered = message.messageData
+                messagingService.processSurveyRegistered(surveyRegistered).collect { result ->
+                    if (!result) {
+                        logger.error("Error processing survey registration: {}", surveyRegistered.toString())
                     }
                 }
             }
