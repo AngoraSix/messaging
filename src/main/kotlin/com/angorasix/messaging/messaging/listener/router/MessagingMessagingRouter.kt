@@ -2,6 +2,7 @@ package com.angorasix.messaging.messaging.listener.router
 
 import com.angorasix.commons.infrastructure.intercommunication.club.UserInvited
 import com.angorasix.commons.infrastructure.intercommunication.messaging.A6InfraMessageDto
+import com.angorasix.commons.infrastructure.intercommunication.survey.SurveyRegistered
 import com.angorasix.messaging.messaging.listener.handler.MessagingMessagingHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -18,6 +19,9 @@ import org.springframework.context.annotation.Configuration
 class MessagingMessagingRouter(
     val handler: MessagingMessagingHandler,
 ) {
+    @Bean
+    fun surveyRegistered(): (A6InfraMessageDto<SurveyRegistered>) -> Unit = { handler.surveyRegistered(it) }
+
     @Bean
     fun clubInvitation(): (A6InfraMessageDto<UserInvited>) -> Unit = { handler.clubContributorInvitation(it) }
 }

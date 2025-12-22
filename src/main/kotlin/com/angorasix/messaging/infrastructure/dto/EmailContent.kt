@@ -24,3 +24,13 @@ data class CustomClubInvitationEmailContent(
     val clubName: String,
     val invitationUrl: String,
 ) : EmailContent(to, subject, locale)
+
+data class SurveyRegisteredEmailContent(
+    override val to: String,
+    override val subject: String,
+    override val locale: Locale,
+    val surveyId: String,
+    val surveyKey: String,
+    val responsesString: String,
+    val contributorId: String? = null,
+) : EmailContent(to, subject, locale)

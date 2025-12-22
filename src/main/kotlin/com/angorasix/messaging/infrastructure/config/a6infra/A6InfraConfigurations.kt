@@ -35,4 +35,5 @@ class PatternPlaceholders(
 class MailingConfigs(
     val fromName: String,
     val fromEmail: String,
+    val platformAdminEmail: String,
 )

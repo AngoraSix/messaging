@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title th:text="#{survey.registered.title}">Survey Registered</title>
+  <style>
+    .container {
+        margin: 0 auto;
+        max-width: 600px;
+        font-family: Arial, sans-serif;
+    }
+    .header {
+        background-color: #0A2239;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+    }
+    .body {
+        margin: 20px 0;
+        padding: 10px;
+    }
+    .section {
+        margin: 20px 0;
+    }
+    .label {
+        font-weight: bold;
+    }
+    .code-block {
+        background-color: #f4f4f4;
+        padding: 10px;
+        font-family: monospace;
+        white-space: pre-wrap;
+        border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1 th:text="#{survey.registered.header}">
+      New Survey Registered
+    </h1>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <p th:text="#{survey.registered.intro}">
+      A new survey response has been registered in the platform.
+    </p>
+
+    <div class="section">
+      <p>
+        <span class="label" th:text="#{survey.registered.contributorId}">Contributor ID:</span>
+        <span th:text="${contributorId}">unknown</span>
+      </p>
+      <p>
+        <span class="label" th:text="#{survey.registered.surveyId}">Survey ID:</span>
+        <span th:text="${surveyId}">survey-id</span>
+      </p>
+      <p>
+        <span class="label" th:text="#{survey.registered.surveyKey}">Survey Key:</span>
+        <span th:text="${surveyKey}">survey-key</span>
+      </p>
+    </div>
+
+    <div class="section">
+      <p class="label" th:text="#{survey.registered.responses}">
+        Responses:
+      </p>
+      <div class="code-block" th:text="${responsesString}">
+        { "example": "response" }
+      </div>
+    </div>
+
+    <div class="section">
+      <p th:text="#{survey.registered.footerNote}">
+        This survey was recorded for tracking and analysis purposes.
+      </p>
+    </div>
+
+    <div class="section">
+      <p th:text="#{survey.registered.signature}">
+        — AngoraSix Platform
+      </p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
